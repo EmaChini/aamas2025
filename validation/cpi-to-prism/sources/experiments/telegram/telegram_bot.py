@@ -79,6 +79,7 @@ def reply_to_message(message, chat_id):
 
 
 def listen_for_messages():
+    return  # Disable the bot listener for now
     if TELEGRAM_BOT_TOKEN == '':
         return
 
