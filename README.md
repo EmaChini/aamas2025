@@ -43,12 +43,86 @@ After execution, benchmark results and logs will be generated in the main direct
 
 ## Repository Structure
 
+
 Below is an overview of the main folders and files in this repository:
 
 ```
 aamas2025/
 ├── README.md                # Project overview and instructions
-├── tool/                    # (Tool scripts and utilities, if present)
+├── tool/                    # Main tool scripts, GUI, and documentation
+│   ├── .gitignore
+│   ├── Dockerfile
+│   ├── example_fig8.ipynb
+│   ├── example_from_bundle.ipynb
+│   ├── example_refinements.ipynb
+│   ├── example_strategy_decision_based.ipynb
+│   ├── image.png
+│   ├── LICENSE.txt
+│   ├── README.md
+│   ├── requirements.txt
+│   ├── run_benchmark.bat
+│   ├── run_benchmark.sh
+│   ├── tutorial.ipynb
+│   ├── CPIs/
+│   │   └── cpi_bundle_x1_y1.cpis.gz
+│   ├── docs/
+│   │   ├── index.md
+│   │   ├── installation_and_usage.md
+│   │   ├── style.css
+│   │   ├── _includes/
+│   │   │   └── navbar.html
+│   │   └── _layouts/
+│   │       └── default.html
+│   ├── gui/
+│   │   ├── Dockerfile
+│   │   ├── requirements.txt
+│   │   └── src/
+│   │       ├── env.py
+│   │       ├── main.py
+│   │       ├── assets/
+│   │       ├── controller/
+│   │       ├── model/
+│   │       └── view/
+│   ├── src/
+│   │   ├── __init__.py
+│   │   ├── __main__.py
+│   │   ├── run_benchmark.py
+│   │   ├── server.py
+│   │   ├── ai/
+│   │   │   ├── llm_utils.py
+│   │   │   ├── model.py
+│   │   │   └── prompt.py
+│   │   ├── api/
+│   │   │   ├── llm.py
+│   │   │   └── paco.py
+│   │   ├── experiments/
+│   │   │   ├── benchmark.py
+│   │   │   ├── experiment.py
+│   │   │   ├── watchdog.py
+│   │   │   ├── etl/
+│   │   │   └── telegram/
+│   │   ├── paco/
+│   │   │   ├── solver.py
+│   │   │   ├── test_from_file.py
+│   │   │   ├── test_solver.py
+│   │   │   ├── test.json
+│   │   │   ├── test.py
+│   │   │   ├── evaluations/
+│   │   │   ├── execution_tree/
+│   │   │   ├── explainer/
+│   │   │   ├── optimizer/
+│   │   │   ├── parser/
+│   │   │   ├── saturate_execution/
+│   │   │   └── searcher/
+│   │   ├── utils/
+│   │   │   ├── check_syntax.py
+│   │   │   ├── env.py
+│   │   │   └── logger.py
+│   │   └── tests/
+│   │       ├── saturate_execution/
+│   │       │   └── test_saturate_execution.py
+│   │       └── searcher/
+│   │           └── test_found_strategy.py
 ├── validation/              # Validation experiments and results
 │   ├── CPI_generation/      # CPI generation scripts and generated processes
 │   │   ├── main.ipynb       # CPI generation notebook
@@ -73,6 +147,9 @@ aamas2025/
 ```
 
 **Key folders:**
+- `tool/gui/`: Source code and assets for the graphical user interface (GUI).
+- `tool/src/`: Main source code for the tool, including core modules, APIs, experiments, and utilities.
+- `tool/tests/`: Test scripts for validating tool functionality.
 - `validation/CPI_generation/`: Scripts and notebooks for generating synthetic CPI processes.
 - `validation/cpi-to-prism/`: Scripts, models, and data for benchmarking with PRISM.
 - `validation/results/`: Databases and notebook for storing and analyzing experiment results.
