@@ -6,8 +6,10 @@
 
 
 ## Description
-This repository contains code and resources for generating synthetic data as described in the validation section in the paper.
-Here running all the main file it will be possible to recreate all the syntetic dataset used in the validation. The  `CPIs` folder will contain all the BPMN+CPIs used in the validation. However, note that the BPMN+CPIs are generated randomly within the complexity class (i.e., it does not change the values ). 
+This repository contains the code and resources for generating synthetic data as described in the validation section of the paper.  
+By executing the main file, it is possible to reproduce all the synthetic datasets used in the validation. The `CPIs` folder contains all the BPMN+CPI models employed in the experiments.  
+It should be noted, however, that the BPMN+CPI models are generated randomly within their respective complexity classes (i.e., the values of MNXN and MIX remain fixed, while the processes are generated randomly within the same complexity class).  
+
 
 ## Prerequisites
 
@@ -40,11 +42,11 @@ To start the application using Python, follow these steps:
     ```
    
 3. **Running the `main.ipynb` Notebook**
-   To start the `main.ipynb` notebook directly, use the following command:
+   To start the `main.ipynb` notebook, use the following command:
     ```bash
-    jupyter notebook main.ipynb --port=8888
+    jupyter notebook --port=8888
     ```
-    Open a browser and go to `http://127.0.0.1:8888` to access the Jupyter environment and run the `main.ipynb` notebook.
+    Open a browser and go to `http://127.0.0.1:8888` to access the Jupyter environment and select the `main.ipynb` notebook, open it and run it.
 
 ---
 
