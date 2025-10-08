@@ -21,10 +21,7 @@ PRISM is already made available because PRISM is free and open source software, 
 
 Ensure all dependencies are installed and your environment is correctly configured before running benchmarks.
 
-### Preparing CPI Bundle
-
-Place your CPI bundle into the `CPIs` folder. If you don't have a CPI bundle, you can create one by following the instructions in the repository [synthetic-cpi-generation](https://github.com/danielamadori/synthetic-cpi-generation), or you can download the pre-built bundle used in the paper for validation [here](https://univr-my.sharepoint.com/:f:/g/personal/emanuele_chini_univr_it/EuMjJi6L03lCp0e348YPAYwBMJ5jTGO1lojwuIlOAhpaaA?e=u9oXl1).
-
+Run the benchmarks for our tool in the tool folder while for prism please enter in the validation folder
 ### Running the Script
 
 Execute the benchmark script according to your operating system:
