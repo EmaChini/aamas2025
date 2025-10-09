@@ -128,7 +128,24 @@ Below are instructions to reproduce tool runs, benchmarks, and validation steps.
 
 ### Running the Tool / Benchmark
 
-Build and run the Docker image for the tool (see above).
+Build and run the Docker image for the tool.
+
+To start the application using Docker, follow these steps:
+
+1. Start the Docker:
+    ```bash
+    docker build -t paco .
+    docker run -d -p 8000:8000 -p 8050:8050 -p 8888:8888 -it --name PACO paco
+    docker logs PACO
+    ```
+
+2. Open a browser and navigate to `http://127.0.0.1:8050` to view the app.
+3. Open a browser and navigate to `http://127.0.0.1:8000` to access the application via REST API.
+   The docs are available at `http://127.0.0.1:8000/docs`
+4. Open another browser tab and go to `http://127.0.0.1:8888` to access the Jupyter environment.  
+   You will find multiple `.ipynb` notebooks available — **we recommend [starting with `tutorial.ipynb`](../tutorial.ipynb)**, which provides a guided walkthrough of the main functionalities.
+
+### Running the experiments
 
 From inside container (or locally, if not using Docker):
 
@@ -138,7 +155,7 @@ chmod +x run_benchmark.sh
 ./run_benchmark.sh
 ```
 
-This will execute a suite of benchmark experiments based on the tool logic, generate logs, results files, and possibly intermediate artifacts.
+This will execute a suite of benchmark experiments based on the algorithm in Section 3, generate logs, results files, and possibly intermediate artifacts.
 
 Optionally, run the Jupyter notebooks in `tool/` (e.g. example_fig8.ipynb, tutorial.ipynb) to explore usage examples and visualizations.
 
