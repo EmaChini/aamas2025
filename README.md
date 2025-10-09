@@ -22,7 +22,6 @@ It is organized into a **tool** component (core method / user interface) and a *
 6. [Results & Output](#results--output)  
 7. [Development & Testing](#development--testing)  
 8. [Caveats & Notes](#caveats--notes)  
-9. [Citation](#citation)
 
 ---
 
