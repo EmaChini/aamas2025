@@ -45,6 +45,7 @@ Generating PRISM code
    ```python
    PRISM_PATH = "prism-4.8.1-linux64/bin/prism"
    ```
+   To be used within leave the path as None. 
 
 2. **Using docker**
    In terminal: 
