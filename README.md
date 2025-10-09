@@ -145,6 +145,43 @@ To start the application using Docker, follow these steps:
 4. Open another browser tab and go to `http://127.0.0.1:8888` to access the Jupyter environment.  
    You will find multiple `.ipynb` notebooks available — **we recommend [starting with `tutorial.ipynb`](../tutorial.ipynb)**, which provides a guided walkthrough of the main functionalities.
 
+> ⚠️ **LLM Integration:**  
+> The tool is designed to support integration with a **Large Language Model (LLM)** for strategy explanation and reasoning.  
+> In our experiments, we ran the model **locally using [LM Studio](https://lmstudio.ai/)**, so **no external API endpoint** is provided by default.  
+>
+> If you wish to connect your own LLM instance (e.g., OpenAI, Ollama, or a custom local API), you can easily modify the endpoint in the function  
+> `run_llm_on_bpmn()` located in  
+> `tool/src/ai/ll_utils.py`.
+>
+> ### Steps to enable your own LLM
+>
+> 1. **Comment out** the following lines (used to check LM Studio’s availability):
+>    ```python
+>    try:
+>        response = requests.get("http://localhost:1234/v1/models", timeout=max_attempts)
+>        response.raise_for_status()
+>    except requests.exceptions.RequestException as e:
+>        return {
+>            "bpmn": bpmn_dict,
+>            "message": "I'm offline"
+>        }
+>    ```
+>
+> 2. **Modify the LLM endpoint configuration** as needed in the code below:
+>    ```python
+>    llm = ChatOpenAI(
+>        openai_api_base="http://localhost:1234/v1",
+>        openai_api_key="lm-studio",
+>        model="deepseek-r1-distill-llama-8b",
+>        temperature=0.7,
+>        verbose=False
+>    )
+>    ```
+>
+> You can replace the `openai_api_base`, `openai_api_key`, or `model` fields with your preferred configuration — for example, connecting to **OpenAI**, **Ollama**, or any other OpenAI-compatible API.  
+>
+> 💡 *Tip:* If you are running locally with LM Studio, make sure the local API is active on `localhost:1234` before executing the tool.
+
 ### Running the experiments
 
 From inside container (or locally, if not using Docker):
