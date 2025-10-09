@@ -1,4 +1,4 @@
-## Strategy finder for *BPMN + CPI*
+## Strategy finder and explainer for *BPMN + CPI*
 
 ## Features
 

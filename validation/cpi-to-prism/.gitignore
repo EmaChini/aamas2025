@@ -4,7 +4,6 @@
 sources/__pycache__/
 sources/spin_to_prism_model/__pycache__/
 
-CPIs/
 models/test*.*
 models/current_benchmark.nm
 models/current_benchmark.pctl

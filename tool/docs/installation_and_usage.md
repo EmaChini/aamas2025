@@ -27,19 +27,18 @@ To install **Python**, follow the instructions on [Python's official website](ht
 
 To start the application using Docker, follow these steps:
 
-1. Pull and start the Docker:
+1. Start the Docker:
     ```bash
-    docker pull danielamadori/paco:latest
-    docker run -d -p 8000:8000 -p 8050:8050 -p 8888:8888 -it --name PACO danielamadori/paco:latest
+    docker build -t paco .
+    docker run -d -p 8000:8000 -p 8050:8050 -p 8888:8888 -it --name PACO paco
     docker logs PACO
     ```
-   Note: Replace latest with a specific version number if needed.
 
 2. Open a browser and navigate to `http://127.0.0.1:8050` to view the app.
 3. Open a browser and navigate to `http://127.0.0.1:8000` to access the application via REST API.
    The docs are available at `http://127.0.0.1:8000/docs`
 4. Open another browser tab and go to `http://127.0.0.1:8888` to access the Jupyter environment.  
-   You will find multiple `.ipynb` notebooks available — **we recommend [starting with `tutorial.ipynb`](https://nbviewer.org/github/danielamadori/PACO/blob/main/tutorial.ipynb)**, which provides a guided walkthrough of the main functionalities.
+   You will find multiple `.ipynb` notebooks available — **we recommend [starting with `tutorial.ipynb`](../tutorial.ipynb)**, which provides a guided walkthrough of the main functionalities.
 
 ### Using Python
 To start the application using Python, follow these steps:
@@ -78,10 +77,10 @@ To start the application using Python, follow these steps:
 NB! This application is currently under development. There may be some issues and bugs.
 
 
-## Running Benchmark
+## Running Benchmark for our methodology
 
 Ensure all dependencies are installed and your environment is correctly configured before running benchmarks.
-
+If you want to run the 
 
 ### Running the Script
 
@@ -92,10 +91,6 @@ Execute the benchmark script according to your operating system:
     ```bash
     chmod +x run_benchmark.sh
     ./run_benchmark.sh
-    ```
-- Windows
-    ```batch
-    .\run_benchmark.bat
     ```
 
 After execution, benchmark results and logs will be generated in the main directory:

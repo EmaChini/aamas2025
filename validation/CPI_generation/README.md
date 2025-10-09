@@ -51,4 +51,4 @@ To start the application using Python, follow these steps:
 ---
 
 ## Output
-The generated bundle will be saved in the `CPIs` folder.
+The generated bundle will be saved in the `CPI_generation/CPIs` folder.
