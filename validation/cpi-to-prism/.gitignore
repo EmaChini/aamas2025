@@ -11,7 +11,5 @@ models/current_benchmark.pctl
 benchmarks.sqlite
 benchmark_output.log
 
-sources/env.py
-
 /prism-4.8.1-mac64-arm/
 /prism-4.8.1-linux64-x86/
