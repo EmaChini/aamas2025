@@ -8,6 +8,9 @@ It is organized into a **tool** component (core method / user interface) and a *
 > ⚠️ **Important:** All components — except possibly the result notebook in `validation/results/` and `validation/CPI_generation` — are **strongly recommended to be run in Docker**.  
 > The **`tool/`** and **`cpi-to-prism/`** folders, in particular, should **always** be executed within Docker to ensure dependency consistency and reproducibility.
 
+
+>⚠️ **NB!** Each folder has a **README** file that helps moving within the single folders. 
+
 ---
 
 ## Table of Contents
@@ -118,9 +121,8 @@ In principle, you can run most scripts natively (e.g. on your system), provided 
 
 However, you risk version mismatches, missing dependencies, or system-specific issues.
 
-The only part that is less necessary to dockerize is the final notebook in validation/results (i.e. the post-hoc analysis). But still, even for consistency, using Docker is safer.
+The only part that is less necessary to dockerize is the final notebook in validation/results (i.e. the post-hoc analysis) and the BPMN+CPIs generation. 
 
-> ⚠️ Thus: Always prefer to create and run everything in Docker (especially tool/ and validation/cpi-to-prism/). Only the analysis notebook might be an exception, if you prefer local inspection.
 
 ## Usage
 
@@ -212,6 +214,17 @@ chmod +x run_benchmark.sh
 
 This will convert CPI bundles into PRISM models, run PRISM on them, and store results (e.g. into SQLite database, logs).
 
+> ⚠️ **CPIs:**  
+> The folders `validation/cpi-to-prism/CPIs` and `tool/CPIs` are intended to contain the **same set of CPI files**.  
+> Currently, **only** the folder `validation/cpi-to-prism/CPIs` includes all the CPI instances used in the experiments, due to storage constraints.  
+>
+> To use these CPIs within the tool, simply **copy** the contents of  
+> `validation/cpi-to-prism/CPIs` → `tool/CPIs`.
+>
+>
+> This ensures both components (the tool and the validation pipeline) operate on the same CPI set.
+
+
 ### Analyze results
 The generated results are stored in `validation/results/` (e.g. benchmarks_our.sqlite, benchmarks_prism.sqlite) along with the analysis notebook (e.g. Validation_Expalining_Strategies_for_Expected_Impacts.ipynb).
 You can open that notebook (locally or via Jupyter) to reproduce plots, tables, and comparisons.
@@ -236,7 +249,7 @@ Ensure Docker is installed and functioning (if using Docker).
 
 Benchmark output from the tool component: logs, result files, possibly intermediate strategy / model artifacts.
 
-### Validation / PRISM output:
+### Validation / Results:
 
 - `validation/results/benchmarks_our.sqlite`
 
@@ -264,8 +277,6 @@ When modifying the cpi-to-prism pipeline, validate that PRISM conversions and be
 
 Docker is strongly recommended: Without it, environment mismatch or missing dependencies are likely.
 
-The final notebook in validation/results/ is the only component that you may choose to run outside Docker (for inspection). All other code (particularly tool and cpi-to-prism) should be run in Docker for best results.
-
 Ensure that PRISM binaries are compatible with your architecture (e.g. Linux, macOS, CPU architecture) when including them or mounting them in Docker.
 
 Execution time for benchmarks or PRISM runs may vary depending on your hardware—ensure you allocate adequate compute and memory resources to the container (e.g. via --cpus, --memory) if needed.
@@ -273,3 +284,5 @@ Execution time for benchmarks or PRISM runs may vary depending on your hardware�
 If GPUs or specialized hardware are used (unlikely here, but if for LLM modules inside the tool), adapt Docker settings accordingly (e.g. --gpus).
 
 Always back up generated result databases before re-running experiments, to avoid accidental overwriting.
+
+> ⚠️ Each folder has a README file that helps moving within the single folders. 
